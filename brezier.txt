@@ -42,7 +42,6 @@ void curve()
 	bezierCoefficients(n,c);
 	glLineWidth(5.0);
 	glBegin(GL_LINE_STRIP);
-	int i;
 	for(u=0;u<1;u+=0.05)
 	{
 		x=0;
@@ -129,8 +128,6 @@ void display()
 void myinit()
 {
 	glClearColor(1.0,1.0,1.0,0.0);
-	//glColor3f(1.0,0.0,0.0);
-	//glPointSize(5.0);
 	gluOrtho2D(0.0,130.0,0.0,130.0);
 }
 
@@ -152,27 +149,4 @@ int main(int argc,char**argv)
 }
 
 
-void winReshapeFun(GLint newWidth,GLint newHeight){
-        glViewport(0,0,newWidth,newHeight);
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-        gluOrtho2D(xwcMin,xwcMax,ywcMin,ywcMax);
-        glClear(GL_COLOR_BUFFER_BIT);
-}
 
-
-int main(int argc, char **argv){
-        glutInit(&argc,argv);
-        glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB);
-        glutInitWindowPosition(50,50);
-        glutInitWindowSize(winWidth,winHeight);
-        glutCreateWindow("4MT19CS063-Bezier Curve");
-        glutDisplayFunc(display);
-        glutReshapeFunc(winReshapeFun);
-        glutCreateMenu(menu);
-        glutAddMenuEntry("flag",1);
-        glutAddMenuEntry("quit",2);
-        glutAttachMenu(GLUT_RIGHT_BUTTON);
-        
-        glutMainLoop();
-}
